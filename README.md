@@ -11,12 +11,13 @@ run an ssb app like patchbay on a local machine, while running the main sbot (ss
   sudo ufw allow OpenSSH
   sudo ufw allow from 127.0.0.1 to any port 8008 proto tcp
   sudo ufw allow from 127.0.0.1 to any port 8007 proto tcp
+  sudo ufw allow from 127.0.0.1 to any port 8043 proto tcp # for ssb-npm-registry if desired
   sudo ufw enable
   ```
 - install node/npm
   ```bash
   curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
-  nvm install 8
+  nvm install 9
   ```
 - install and start `ssb-server`
   ```bash
