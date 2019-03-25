@@ -35,9 +35,25 @@ patchfoo is easy because everything can run on the server and the local machine 
   ```
 - browse to http://localhost:8027 locally and smile
 
+## scat/gester
+this app needs to connect to what it thinks is a local ssb instance, so it needs the secret and manifest.json files present in `~/.ssb`. **This is probably dangerous and could fork your identity so proceed at your own risk.**
+
+- copy these two files from the remote server to the local client
+  ```bash
+  ~/.ssb/secret
+  ~/.ssb/manifest.json
+  ```
+- install `ssb-chat` or [gester](https://github.com/stripedpajamas/gester)
+  ```bash
+  npm i -g ssb-chat
+  ```
+- run scat/gester locally and smile
+  ```bash
+  scat
+  ```
+
 
 ## todo
 - patchbay
 - patchwork
-- scat/gester
 
