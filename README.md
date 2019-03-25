@@ -1,7 +1,7 @@
 # ssb-over-ssh
 
 ## goal
-run an ssb app like patchbay on a local machine, while running the main sbot (ssb-server) on a remote server. tunnel the relevant ports (8008/8007) through SSH.
+run an ssb app on a local machine, while running the main sbot (ssb-server) on a remote server. tunnel the relevant ports (8008/8007) through SSH.
 
 ## basics
 - create a cloud server (Ubuntu)
@@ -11,7 +11,7 @@ run an ssb app like patchbay on a local machine, while running the main sbot (ss
   sudo ufw allow OpenSSH
   sudo ufw allow from 127.0.0.1 to any port 8008 proto tcp
   sudo ufw allow from 127.0.0.1 to any port 8007 proto tcp
-  sudo ufw allow from 127.0.0.1 to any port 8043 proto tcp # for ssb-npm-registry if desired
+  sudo ufw allow from 127.0.0.1 to any port 8043 proto tcp # for ssb-npm-registry if needed
   sudo ufw enable
   ```
 - install node/npm
@@ -24,26 +24,20 @@ run an ssb app like patchbay on a local machine, while running the main sbot (ss
   npm i -g ssb-server
   ssb-server start
   ```
-- copy secret and manifest.json locally
-  *this is probably kind of dangerous and could lead to forking your identity*
+
+## patchfoo
+patchfoo is easy because everything can run on the server and the local machine can just hit the web service tunneled through ssh. 
+- install patchfoo from [this guide](http://git.scuttlebot.io/%25YAg1hicat%2B2GELjE2QJzDwlAWcx0ML%2B1sXEdsWwvdt8%3D.sha256)
+  i opted for installing it as a plugin
+- tunnel 8027 through ssh
   ```bash
-  # these two files need to be copied from the remote server
-  # to the local machine
-  ~/.ssb/secret
-  ~/.ssb/manifest.json
+  ssh -L 8027:localhost:8027 user@server
   ```
-  
-  
-## tunnel local ssb traffic through ssh to remote server
-```bash
-ssh -L 8008:localhost:8008 user@server
-```
-this means "whenever my local machine tries to hit port 8008, send it through this SSH connection and to my remote server's `localhost:8008`" which is of course the remote server's ssb instance.
+- browse to http://localhost:8027 locally and smile
 
-## test it out
-on the local machine, see if it can connect to the remote ssb-server and get the `whoami` response
-```bash
-ssb-server whoami
-```
 
+## todo
+- patchbay
+- patchwork
+- scat/gester
 
