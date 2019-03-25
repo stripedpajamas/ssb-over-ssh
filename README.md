@@ -38,7 +38,7 @@ run an ssb app like patchbay on a local machine, while running the main sbot (ss
 ```bash
 ssh -L 8008:localhost:8008 user@server
 ```
-this means "whenever my local machine tries to hit port 8008, sned it through this SSH connection and to my remote server's `localhost:8008` which is of course the remote server's ssb instance.
+this means "whenever my local machine tries to hit port 8008, send it through this SSH connection and to my remote server's `localhost:8008`" which is of course the remote server's ssb instance.
 
 ## test it out
 on the local machine, see if it can connect to the remote ssb-server and get the `whoami` response
