@@ -36,8 +36,9 @@ run an ssb app like patchbay on a local machine, while running the main sbot (ss
   
 ## tunnel local ssb traffic through ssh to remote server
 ```bash
-ssh -L 8008:<public server ip>:8008 ssb
+ssh -L 8008:localhost:8008 user@server
 ```
+this means "whenever my local machine tries to hit port 8008, sned it through this SSH connection and to my remote server's `localhost:8008` which is of course the remote server's ssb instance.
 
 ## test it out
 on the local machine, see if it can connect to the remote ssb-server and get the `whoami` response
