@@ -72,7 +72,7 @@ patchbay is set up to use a unix socket to connect to the sbot instance and it a
   npm run dev
   ```
 
-i wrote [a small bash script]() to automate this on my own machine. you can download the script and add `alias pb=path/to/pb.sh` to your `.bash_profile` etc. and then run `pb` to start patchbay. check the comments in the script for assumptions made.
+i wrote [a small bash script](https://github.com/stripedpajamas/ssb-over-ssh/blob/master/pb.sh) to automate this on my own machine. you can download the script and add `alias pb=path/to/pb.sh` to your `.bash_profile` etc. and then run `pb` to start patchbay. check the comments in the script for assumptions made.
 
 ## todo
 - patchwork (I don't think external sbot is supported at this time)
