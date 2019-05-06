@@ -74,6 +74,20 @@ patchbay is set up to use a unix socket to connect to the sbot instance and it a
 
 i wrote [a small bash script](https://github.com/stripedpajamas/ssb-over-ssh/blob/master/pb.sh) to automate this on my own machine. you can download the script and add `alias pb=path/to/pb.sh` to your `.bash_profile` etc. and then run `pb` to start patchbay. check the comments in the script for assumptions made.
 
+## yap
+yap is browser based so it's very easy to get going over ssh.
+
+- install and run [yap](https://github.com/dominictarr/yap) on the ssh server (git clone + npm install + node index.js)
+- tunnel the needed port
+  ```bash
+  ssh -L 8005:localhost:8005 user@server
+  ```
+- browse to http://localhost:8005/public locally and smile
+
+## tips
+- i typically use `ssh -NL <port>:localhost:<port> host` and the `N` makes it not drop into a shell.
+- sometimes i chain multiple port bindings together like `ssh -NL <port1>:localhost:<port1> -L <port2>:localhost:<port2> host`
+
 ## todo
 - patchwork (I don't think external sbot is supported at this time)
 
