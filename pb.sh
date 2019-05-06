@@ -15,6 +15,7 @@ scp ssb:'~/.ssb/manifest.json ~/.ssb/secret' ~/.ssb
 pushd $PATCHBAY_DIR
 git checkout -- . # return everything to defaults
 git pull origin master # update code
+npm i # they add deps all the time
 sed -i '' "s/config = addSockets/\/\/ config = addSockets/" config.js # don't add sockets
 
 # ssh tunnel
