@@ -15,12 +15,14 @@ scp ssb:'~/.ssb/manifest.json ~/.ssb/secret' ~/.ssb
 pushd $PATCHBAY_DIR
 git checkout -- . # return everything to defaults
 git pull origin master # update code
-npm i # they add deps all the time
+if [[ "$1" == "install" ]]; then
+  npm i # they add deps all the time
+fi
 sed -i '' "s/config = addSockets/\/\/ config = addSockets/" config.js # don't add sockets
 
 # ssh tunnel
 ssh -NL 8008:localhost:8008 -L 8989:localhost:8989 ssb &
 
 # run it
-npm run dev
+npm run lite
 popd
